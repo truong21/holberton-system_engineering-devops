@@ -1,0 +1,4 @@
+Host 34.73.203.50
+	BatchMode no
+	IdentityFile ~/.ssh/holberton
+	PasswordAuthentication no	
