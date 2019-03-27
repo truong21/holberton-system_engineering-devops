@@ -8,7 +8,7 @@ sudo sed -i "30i $REDIRECT" /etc/nginx/sites-available/default
 
 #create custom 404 page
 old_str='#error_page 404 \/404.html;'
-replace_str='error_page 404 \/custom_404.html; \\nlocation = /custom_404.html {\\nroot /usr/share/nginx/html; \ninternal;\\n}'
+replace_str='error_page 404 \/custom_404.html;'
 sudo sed -i "s/$old_str/$replace_str/" /etc/nginx/sites-available/default
 
 sudo touch /usr/share/nginx/html/custom_404.html
