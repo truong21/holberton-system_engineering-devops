@@ -1,5 +1,5 @@
 # kills process 'killmenow'
-exec { 'kills killmenow':
+exec { 'killmenow':
   command => 'pkill killmenow',
-  path    => [ '/usr/local/bin/', '/bin/' ]
+  path    => '/bin/'
 }
