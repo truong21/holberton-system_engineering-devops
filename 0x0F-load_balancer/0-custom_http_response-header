@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Install and configure nginx server with basic homepage and custom error page
+FILE="/etc/nginx/sites-available/default"
+
+sudo apt-get update -y
+sudo apt-get install nginx -y
+
+sudo sed -i "37i add_header X-Served-By: $HOSTNAME;" $FILE
+
+sudo service nginx restart
