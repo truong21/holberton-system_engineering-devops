@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+if [ -z "$2" ]; then
+    # www
+    RECORD="$(dig "www.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {print $4}')"
+    ADDRESS="$(dig "www.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {print $5}')"
+    echo "The subdomain www is a $RECORD record and points to $ADDRESS"
+    # lb-01
+    RECORD="$(dig "lb-01.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {print $4}')"
+    ADDRESS="$(dig "lb-01.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {print $5}')"
+    echo "The subdomain lb-01 is a $RECORD record and points to $ADDRESS"
+    # web-01
+    RECORD="$(dig "web-01.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {print $4}')"
+    ADDRESS="$(dig "web-01.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {print $5}')"
+    echo "The subdomain web-01 is a $RECORD record and points to $ADDRESS"
+    # web-02
+    RECORD="$(dig "web-02.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {print $4}')"
+    ADDRESS="$(dig "web-02.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {print $5}')"
+    echo "The subdomain web-02 is a $RECORD record and points to $ADDRESS"
+else
+    RECORD="$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {print $4}')"
+    ADDRESS="$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {print $5}')"
+    echo "The subdomain $2 is a $RECORD record and points to $ADDRESS"
+fi
