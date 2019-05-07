@@ -3,8 +3,8 @@
 Script to export data to json
 """
 import csv
-import requests
 import json
+import requests
 
 
 if __name__ == "__main__":

@@ -3,9 +3,9 @@
 Script to export data to json
 """
 import csv
+import json
 import requests
 import sys
-import json
 
 
 if __name__ == "__main__":
